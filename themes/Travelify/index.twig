@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>{% if meta.title %}{{ meta.title }}{% else %}{{ site_title }}{% endif %}</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    {% if meta.description %}
+        <meta name="description" content="{{ meta.description|striptags }}">
+    {% endif %}{% if meta.robots %}
+        <meta name="robots" content="{{ meta.robots }}">
+    {% endif %}
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" type="text/css" />
+    <link rel='stylesheet' href='{{ theme_url }}/style.css' type='text/css'/>
+    <script src="{{ theme_url }}/scripts/jquery-3.1.1.min.js"></script>
+    <script src="{{ theme_url }}/scripts/modernizr-2.6.1.min.js"></script>
+</head>
+
+<body>
+<div class="wrapper">
+    <header id="branding">
+        <div class="container clearfix">
+            <div class="hgroup-wrap clearfix">
+                <section class="hgroup-right">
+                </section>
+                <hgroup id="site-logo" class="clearfix">
+                    <h1 id="site-title"><a href="/">{{ site_title }}</a></h1>
+                    <h2 id="site-description">{{ config.site_subtitle }}</h2>
+                </hgroup>
+            </div>
+        </div>
+        <nav id="main-nav" class="clearfix">
+            <div class="container clearfix">
+                {{ 'navbar'|content }}
+            </div>
+        </nav>
+        {% if current_page.id == 'index' %} {# only show pictures at index page #}
+            <section class="featured-slider">
+                <div class="slider-cycle">
+                    {{ 'slider'|content }}
+            </section>
+        {% endif %}
+    </header>
+    <div id="main" class="clearfix">
+        <div>
+            <div id="primary" class="no-margin-left">
+                <div id="content">
+                    <section class="page">
+                        <article>
+                            {{ content }}
+                        </article>
+                    </section>
+                </div>
+            </div>
+            <div id="secondary">
+                {% for page in pages %}
+                    {% if page.id starts with current_page.id|split('/')|slice(0,-1)|join('/') ~ '/sidebars/' %} {# page-specfic sidebars should be placed before global ones #}
+                        <aside class="widget">
+                            <h3 class="widget-title">{{ page.title }}</h3>
+                            {{ page.id|content }}
+                        </aside>
+                    {% endif %}
+                {% endfor %}
+                {% for page in pages %}
+                    {% if page.id starts with 'sidebars/' %} {# global sidebars #}
+                        <aside class="widget">
+                            <h3 class="widget-title">{{ page.title }}</h3>
+                            {{ page.id|content }}
+                        </aside>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <footer id="footerarea" class="clearfix">
+        <div id="site-generator">
+            <div class="container">
+                <div class="copyright">Copyright &copy; 2016 <span>{{ config.site_copyright }}</span>.
+                </div>
+                <div class="footer-right">Theme <a href="https://github.com/xupefei/Travelify">Travelify</a> ported by Paddy Xu.</div>
+                <div style="clear:both;"></div>
+            </div>
+        </div>
+    </footer>
+</div>
+<script>
+	$(document.links).filter(function() {
+		return this.hostname != window.location.hostname;
+	}).attr('target', '_blank');
+</script>
+</body>
+</html>
