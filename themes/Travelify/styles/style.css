@@ -869,6 +869,7 @@ a.more-link:hover {
 --------------------------------------------------------------*/
 .featured-slider, .featured-slider .slider-cycle {
     position: relative;
+    height: 246px;
 }
 
 .featured-slider .displayblock {
@@ -1798,7 +1799,7 @@ ul.default-wp-page li a:active {
 }
 
 .widget ul li {
-    background-image: url('./images/arrow-right.png');
+    background-image: url('../images/arrow-right.png');
     background-position: 0 8px;
     background-repeat: no-repeat;
     padding: 0 0 0 15px;

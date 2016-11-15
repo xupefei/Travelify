@@ -12,9 +12,12 @@
     {% endif %}
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" type="text/css" />
-    <link rel='stylesheet' href='{{ theme_url }}/style.css' type='text/css'/>
+    <link rel='stylesheet' href='{{ theme_url }}/styles/style.css' type='text/css'/>
+    <link rel='stylesheet' href='{{ theme_url }}/styles/unslider.css' type='text/css'/>
+    <link rel='stylesheet' href='{{ theme_url }}/styles/unslider-dots.css' type='text/css'/>
     <script src="{{ theme_url }}/scripts/jquery-3.1.1.min.js"></script>
     <script src="{{ theme_url }}/scripts/modernizr-2.6.1.min.js"></script>
+    <script src="{{ theme_url }}/scripts/unslider-min.js"></script>
 </head>
 
 <body>
@@ -35,11 +38,17 @@
                 {{ 'navbar'|content }}
             </div>
         </nav>
-        {% if current_page.id == 'index' %} {# only show pictures at index page #}
-            <section class="featured-slider">
-                <div class="slider-cycle">
-                    {{ 'slider'|content }}
-            </section>
+        {% if current_page.id == 'index' %} {# only show sliders at index page #}
+            <div class="featured-slider" >
+                {{ 'slider'|content }}
+            </div>
+            <script>
+                $('.featured-slider').unslider({
+                    animation: 'fade',
+                    autoplay: true,
+                    arrows: false
+                });
+            </script>
         {% endif %}
     </header>
     <div id="main" class="clearfix">
