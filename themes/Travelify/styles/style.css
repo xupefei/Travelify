@@ -753,7 +753,7 @@ a.more-link:hover {
     padding: 0;
 }
 
-#main-nav ul {
+#main-nav>ul {
     padding-left: 20px;
 }
 
