@@ -753,6 +753,10 @@ a.more-link:hover {
     padding: 0;
 }
 
+#main-nav ul {
+    padding-left: 20px;
+}
+
 #main-nav a {
     color: #fff;
     display: block;

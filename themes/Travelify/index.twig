@@ -16,7 +16,7 @@
     <link rel='stylesheet' href='{{ theme_url }}/styles/unslider.css' type='text/css'/>
     <link rel='stylesheet' href='{{ theme_url }}/styles/unslider-dots.css' type='text/css'/>
     <script src="{{ theme_url }}/scripts/jquery-3.1.1.min.js"></script>
-    <script src="{{ theme_url }}/scripts/modernizr-2.6.1.min.js"></script>
+    <script src="{{ theme_url }}/scripts/tinynav.min.js"></script>
     <script src="{{ theme_url }}/scripts/unslider-min.js"></script>
 </head>
 
@@ -34,9 +34,7 @@
             </div>
         </div>
         <nav id="main-nav" class="clearfix">
-            <div class="container clearfix">
-                {{ 'navbar'|content }}
-            </div>
+            {{ 'navbar'|content }}
         </nav>
         {% if current_page.id == 'index' %} {# only show sliders at index page #}
             <div class="featured-slider" >
@@ -95,9 +93,14 @@
     </footer>
 </div>
 <script>
-	$(document.links).filter(function() {
-		return this.hostname != window.location.hostname;
-	}).attr('target', '_blank');
+    $(function () {
+        $("#main-nav").children(0).tinyNav();
+    });
+</script>
+<script>
+    $(document.links).filter(function() {
+        return this.hostname != window.location.hostname;
+    }).attr('target', '_blank');
 </script>
 </body>
 </html>
