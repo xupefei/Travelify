@@ -56,14 +56,6 @@ Example of page-specific sidebars can be found in `content-sample/a/a/sidebars/`
 
 The theme is released for free under the terms of the GNU General Public License version 2 and some parts under their respective licenses. In general words, feel free and encouraged to use, modify and redistribute this theme however you like. You may remove any copyright references (unless required by third party components) and crediting is not necessary. The theme is offered free of charge. If someone asked money for it, someone just tricked you.
 
-Unless otherwise specified, all the theme files, scripts and images are licensed under GNU General Public License version 2, see file `LICENSE` file.
-
-The exceptions to this license are as follows:
-
- - Travelify WordPress theme licensed under GPL.
- - Unslider licensed under WTFPL.
-
-
 ### Preview
 
 ![preview](https://raw.githubusercontent.com/xupefei/Travelify/master/travelify.png)
